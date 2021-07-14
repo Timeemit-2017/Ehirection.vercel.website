@@ -29,7 +29,7 @@
             </a>
         </div>
         <h1>八方 Ehirection</h1>
-        <div id="ad" onload="ad_init()">
+        <div id="ad">
             <img id="ad-img" src="source/0.png" onload="changeImgScale(document.getElementById('ad-img'))" />
             <div id="buttons">
                 <button id="left" , onclick="pagePlus(-1)">👈</button>
@@ -45,22 +45,12 @@
     <script language="javascript" type="text/javascript">
         // 推广板块
 
-
         changeImgScale(document.getElementById("ad-img"))
+
+        changeButtonHighLight(0, 0)
 
         var delay = 3000;
         setInterval("pagePlus(1)", delay);
-
-
-        function ad_init() {
-            for (i = 0; i < 5; i++) {
-                window.alert("run");
-                pagePlus(1);
-            }
-            pageChange(1);
-            pageChange(2);
-            pageChange(0);
-        }
 
         function pagePlus(dire) {
             var img = document.getElementById("ad-img");
