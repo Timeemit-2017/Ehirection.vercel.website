@@ -1,15 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ch">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="links/css.css">
     <title>Ehirection</title>
 </head>
 
-<body>
-    网页测试
+<body id="mainpage">
+    <div id="background">
+        <div class="top">
+            <a href="#">
+            首页
+            </a>
+            <a href="https://www.github.com/Timeemit-2017/Ehirection" target="_blank">
+            Github
+            </a>
+            <a href="websites/download.html">
+            下载
+            </a>
+            <a href="#">
+            关于
+            </a>
+            <a href="#">
+            社区
+            </a>
+        </div>
+        <h1>八方 Ehirection</h1>
+        <div id="ad" onload="ad_init()">
+            <img id="ad-img" src="source/0.png" onload="changeImgScale(document.getElementById('ad-img'))" />
+            <div id="buttons">
+                <button id="left" , onclick="pagePlus(-1)">👈</button>
+                <button id="button0" , onclick="pageChange(0)">1</button>
+                <button id="button1" , onclick="pageChange(1)">2</button>
+                <button id="button2" , onclick="pageChange(2)">3</button>
+                <button id="button3" , onclick="pageChange(3)">4</button>
+                <button id="button4" , onclick="pageChange(4)">5</button>
+                <button id="right" , onclick="pagePlus(1)">👉</button>
+            </div>
+        </div>
+    </div>
+    <script language="javascript" type="text/javascript">
+        // 推广板块
+
+
+        changeImgScale(document.getElementById("ad-img"))
+
+        var delay = 3000;
+        setInterval("pagePlus(1)", delay);
+
+
+        function ad_init() {
+            for (i = 0; i < 5; i++) {
+                window.alert("run");
+                pagePlus(1);
+            }
+            pageChange(1);
+            pageChange(2);
+            pageChange(0);
+        }
+
+        function pagePlus(dire) {
+            var img = document.getElementById("ad-img");
+            var thisPath = img.src;
+            var numStr = thisPath.slice(-5, -4);
+            num = Number(numStr);
+            var newNum = num + dire;
+            if (newNum < 0) {
+                newNum = 4
+            }
+            if (newNum > 4) {
+                newNum = 0
+            }
+            var afterNum = String(newNum);
+            img.src = "source/" + newNum + ".png";
+            changeImgScale(img)
+            changeButtonHighLight(numStr, afterNum)
+        }
+
+        function pageChange(num) {
+            // num为int（就是那个意思）
+            num = Number(num);
+            var img = document.getElementById("ad-img");
+            var thisPath = img.src;
+            var numStr = thisPath.slice(-5, -4);
+            img.src = "source/" + num + ".png";
+            changeImgScale(img);
+            changeButtonHighLight(numStr, num);
+        }
+
+        function changeImgScale(img) {
+            // while (img.complete == false) {}
+            var width = img.naturalWidth;
+            var height = img.naturalHeight;
+            var background = document.getElementById("ad");
+            var bg_width = background.style.width;
+            var bg_height = background.style.height;
+            console.log(width, height, img.src);
+            if (width > height) {
+                width = "100%";
+                height = "auto";
+            } else {
+                height = "100%";
+                width = "auto";
+            }
+
+            img.style.width = width;
+            img.style.height = height;
+        }
+
+        function changeButtonHighLight(lastNum, thisNum) {
+            // num 为 string
+            document.getElementById("button" + lastNum).style.backgroundColor = "rgba(199, 198, 137, 0.5)";
+            document.getElementById("button" + thisNum).style.backgroundColor = "rgba(199, 198, 137, 1)";
+            // window.alert("button" + lastNum);
+            // window.alert("button" + thisNum);
+        }
+    </script>
 </body>
 
 </html>

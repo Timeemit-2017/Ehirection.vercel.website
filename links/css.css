@@ -1,0 +1,129 @@
+#mainpage {
+    margin: 0;
+    padding: 0;
+}
+
+div {
+    width: 100px;
+    height: 100px;
+}
+
+.top {
+    width: 100%;
+    height: 50px;
+    background-color: darkgoldenrod;
+    background-image: linear-gradient(black, rgb(190, 187, 0));
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:link,
+a:visited {
+    color: rgb(226, 224, 87);
+}
+
+.top a {
+    display: inline-block;
+    width: 19.3%;
+    height: 50px;
+    background-color: rgba(255, 252, 0, 0.281);
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: none;
+    margin: 0, 0, 0, 0;
+}
+
+.top a:hover {
+    background-color: rgba(255, 252, 0, 0.799)
+}
+
+.top a:active {
+    background-color: rgba(170, 200, 0, 0.799)
+}
+
+#background {
+    width: 100%;
+    height: 200vw;
+}
+
+h1 {
+    color: rgb(240, 240, 240);
+    text-align: left;
+}
+
+#background,
+h1,
+#ad {
+    background-color: rgb(7, 7, 7);
+}
+
+p {
+    background-color: rgb(7, 7, 7);
+    text-indent: 2em;
+    color: white;
+    margin-top: 0%;
+    margin-bottom: 0%;
+    width: 100vw;
+    line-height: 30px;
+}
+
+#ad {
+    width: 700px;
+    height: 500px;
+    border: 2px solid rgba(255, 252, 0, 0.7);
+    border-radius: 5px;
+    text-align: center;
+    margin: 0 left;
+    position: absolute;
+    /* overflow: hidden; */
+}
+
+#ad-img {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100px;
+    height: 100px;
+}
+
+#ad button {
+    width: 50px;
+    height: 50px;
+}
+
+#buttons {
+    position: absolute;
+    top: 0;
+    right: 15px;
+    width: 10%;
+    height: 100%;
+    display: inline-block;
+    background-color: rgba(7, 7, 7, 0.7);
+}
+
+#buttons button {
+    height: 50px;
+    background-color: rgba(199, 198, 137, 0.5);
+    border: none;
+    font-size: 16pt;
+    text-align: center;
+    line-height: 50px;
+    margin: 15% 0 15% 0;
+    color: rgb(255, 252, 0);
+}
+
+#buttons button:hover {
+    background: rgb(192, 190, 75);
+}
+
+#buttons button:active {
+    background: rgb(202, 200, 67);
+}
+
+#button0 {
+    background-color: rgb(199, 198, 137);
+}
