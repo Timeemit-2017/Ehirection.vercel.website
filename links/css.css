@@ -77,9 +77,10 @@ p {
     border: 2px solid rgba(255, 252, 0, 0.7);
     border-radius: 5px;
     text-align: center;
-    margin: 0 left;
     position: absolute;
-    /* overflow: hidden; */
+    /* margin-left: 50%;
+    transform: translateX(-50%); */
+    overflow: hidden;
 }
 
 #ad-img {
