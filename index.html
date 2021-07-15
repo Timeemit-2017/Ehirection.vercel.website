@@ -9,22 +9,18 @@
     <title>Ehirection</title>
 </head>
 
-<body id="mainpage">
+<body id="mainpage" onresize="adaptation()">
     <div id="background">
         <div class="top">
             <a href="#">
             首页
-            </a>
             <a href="https://www.github.com/Timeemit-2017/Ehirection" target="_blank">
             Github
-            </a>
-            <a href="websites/download.html">
+            <a href="download.html">
             下载
-            </a>
-            <a href="#">
+            <a href="about.html">
             关于
-            </a>
-            <a href="#">
+            <a href="community.html">
             社区
             </a>
         </div>
@@ -107,6 +103,30 @@
             document.getElementById("button" + thisNum).style.backgroundColor = "rgba(199, 198, 137, 1)";
             // window.alert("button" + lastNum);
             // window.alert("button" + thisNum);
+        }
+    </script>
+    <script language="javascript" type="text/javascript">
+        adaptation()
+
+        function adaptation() {
+            adap_ad()
+        }
+
+        function adap_ad() {
+            var screenWidth = window.innerWidth;
+            var screenHeight = window.innerHeight;
+            // 推广页适配
+            var ad = document.getElementById("ad");
+            if (700 > screenWidth) {
+                ad.style.width = "100%";
+            } else {
+                ad.style.width = "700px";
+            }
+            if (500 > screenHeight) {
+                ad.style.height = "100%";
+            } else {
+                ad.style.height = "500px";
+            }
         }
     </script>
 </body>
