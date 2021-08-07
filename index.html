@@ -9,72 +9,128 @@
     <title>Ehirection</title>
 </head>
 
-<body id="mainpage" onresize="adaptation()">
-    <div id="background">
-        <div class="top">
-            <a href="#">
+<body id="mainpage">
+    <header>
+        <a href="#">
             首页
-            <a href="https://www.github.com/Timeemit-2017/Ehirection" target="_blank">
+        </a>
+        <a href="https://www.github.com/Timeemit-2017/Ehirection" target="_blank">
             Github
-            <a href="download.html">
+        </a>
+        <a href="download.html">
             下载
-            <a href="about.html">
+        </a>
+        <a href="about.html">
             关于
-            <a href="community.html">
+        </a>
+        <a href="community.html">
             社区
-            </a>
-        </div>
+        </a>
+    </header>
+    <main>
         <h1>八方 Ehirection</h1>
-        <div id="ad">
-            <img id="ad-img" src="source/0.png" onload="changeImgScale(document.getElementById('ad-img'))" />
-            <div id="buttons">
-                <button id="left" , onclick="pagePlus(-1)">👈</button>
-                <button id="button0" , onclick="pageChange(0)">1</button>
-                <button id="button1" , onclick="pageChange(1)">2</button>
-                <button id="button2" , onclick="pageChange(2)">3</button>
-                <button id="button3" , onclick="pageChange(3)">4</button>
-                <button id="button4" , onclick="pageChange(4)">5</button>
-                <button id="right" , onclick="pagePlus(1)">👉</button>
+        <div class="row">
+            <div id="ad" class="col-6" onmouseover="setPageDelay(7200000)" onmouseout="setPageDelay(3000)">
+                <!-- <img id="ad-img" src="source/0.png" onload="changeImgScale(document.getElementById('ad-img'))" /> -->
+                <div id="buttons">
+                    <button id="left" , onclick="pagePlus(-1)">👈</button>
+                    <button id="button0" , onclick="pageChange(0)">1</button>
+                    <button id="button1" , onclick="pageChange(1)">2</button>
+                    <button id="button2" , onclick="pageChange(2)">3</button>
+                    <button id="button3" , onclick="pageChange(3)">4</button>
+                    <button id="button4" , onclick="pageChange(4)">5</button>
+                    <button id="right" , onclick="pagePlus(1)">👉</button>
+                </div>
             </div>
-        </div>
-    </div>
+            <div id="introduction" class="col-6">
+                <marquee>
+                    欢迎来到八方官网！并且这里是信息栏！您可以在这里查询有关于八方游戏的各种信息，包括但不限于玩法、下载方式、公告方面。
+                </marquee>
+                <ul>
+                    <li><a href="community.html">beta 1.4.0版本前瞻</a></li>
+                    <li><a href="community.html">beta 1.3.0版本更新公告</a></li>
+                </ul>
+            </div>
+            <div id="more" class="col-12">
+                <h2>详情：</h2>
+                <p>
+                    哦我的上帝！抛开这个网页本身不谈这个网页做的还是挺好的。只不过我们需要一些正经的东西而已。
+                </p>
+                <p>
+                    或许我们需要更多的介绍，关于玩法什么的之类的。但是非常可惜，由于这个网页还在开发，我不打算现在就添加上，或许是因为懒吧。
+                </p>
+                <p>
+                    但是我们仍然需要思考一下这个大板块用来放什么东西。
+                </p>
+                <p>
+                    让我想想...
+                </p>
+                <p>
+                    ......
+                </p>
+                <p>
+                    ......
+                </p>
+                <p>
+                    ......
+                </p>
+                <p>
+                    ......
+                </p>
+                <p>
+                    ......
+                </p>
+                <p>
+                    ......
+                </p>
+                <p>
+                    算了，回来再想。
+                </p>
+            </div>
+    </main>
+    <footer>
+        尾部！
+    </footer>
     <script language="javascript" type="text/javascript">
         // 推广板块
-
-        changeImgScale(document.getElementById("ad-img"))
 
         changeButtonHighLight(0, 0)
 
         var delay = 3000;
-        setInterval("pagePlus(1)", delay);
+        var thisAd = 0;
+        var intervalNum = setInterval("pagePlus(1)", delay);
 
-        function pagePlus(dire) {
-            var img = document.getElementById("ad-img");
-            var thisPath = img.src;
-            var numStr = thisPath.slice(-5, -4);
-            num = Number(numStr);
-            var newNum = num + dire;
-            if (newNum < 0) {
-                newNum = 4
+        function pagePlus(dire, isClick = false) {
+            if (delay == 7200000 && isClick) {
+                window.alert("真有耐心啊，我看你盯着这一个宣传图有够无聊，好心给你换了吧。");
             }
-            if (newNum > 4) {
-                newNum = 0
+            oldAd = thisAd;
+            thisAd += dire;
+            if (thisAd > 4) {
+                thisAd = 0;
+            } else if (thisAd < 0) {
+                thisAd = 4;
             }
-            var afterNum = String(newNum);
-            img.src = "source/" + newNum + ".png";
-            changeImgScale(img)
-            changeButtonHighLight(numStr, afterNum)
+            pageUpdate();
         }
 
         function pageChange(num) {
             // num为int（就是那个意思）
-            num = Number(num);
-            var img = document.getElementById("ad-img");
-            var thisPath = img.src;
-            var numStr = thisPath.slice(-5, -4);
-            img.src = "source/" + num + ".png";
-            changeImgScale(img);
-            changeButtonHighLight(numStr, num);
+            oldAd = thisAd;
+            thisAd = num;
+            pageUpdate();
+        }
+
+        function pageUpdate() {
+            var ad = document.getElementById("ad");
+            ad.style.backgroundImage = "url(../source/" + thisAd + ".png)";
+            changeButtonHighLight(oldAd, thisAd);
+        }
+
+        function setPageDelay(d) {
+            delay = d;
+            clearInterval(intervalNum);
+            intervalNum = setInterval("pagePlus(1)", delay);
         }
 
         function changeImgScale(img) {
@@ -105,30 +161,7 @@
             // window.alert("button" + thisNum);
         }
     </script>
-    <script language="javascript" type="text/javascript">
-        adaptation()
 
-        function adaptation() {
-            adap_ad()
-        }
-
-        function adap_ad() {
-            var screenWidth = window.innerWidth;
-            var screenHeight = window.innerHeight;
-            // 推广页适配
-            var ad = document.getElementById("ad");
-            if (700 > screenWidth) {
-                ad.style.width = "100%";
-            } else {
-                ad.style.width = "700px";
-            }
-            if (500 > screenHeight) {
-                ad.style.height = "100%";
-            } else {
-                ad.style.height = "500px";
-            }
-        }
-    </script>
 </body>
 
 </html>
