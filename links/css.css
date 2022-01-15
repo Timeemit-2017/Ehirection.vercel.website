@@ -48,12 +48,6 @@
     background-color: rgba(17, 17, 17);
 }
 
-#introduction,
-#introduction ul li a:visited,
-#more {
-    color: rgb(240, 241, 224);
-}
-
 #introduction ul li {
     width: 100%;
     line-height: 175%;
