@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <link type="text/css" rel="stylesheet" href="../../links/public.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            首页
+        </a>
+        <a href="https://www.github.com/Timeemit-2017/Ehirection" target="_blank">
+            Github
+        </a>
+        <a href="download.html">
+            下载
+        </a>
+        <a href="about.html" id="aHighLight">
+            关于
+        </a>
+        <a href="community.html">
+            社区
+        </a>
+    </header>
+
+    <h1>0</h1>
+
+    <script>
+        function getHeader() {
+            try //Internet Explorer
+            {
+                xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+            } catch (e) {
+                try //Firefox, Mozilla, Opera, etc.
+                {
+                    xmlDoc = document.implementation.createDocument("", "", null);
+                } catch (e) {
+                    alert(e.message)
+                }
+            }
+            return xmlDoc;
+        }
+
+        function test() {
+            var xmlhttp = getHeader();
+            //xmlhttp.load("./source/documents/第八卫星.xml");
+            window.alert(xmlhttp.name);
+            var h1_content = xmlhttp.getElementsByTagName("h1")[0].innerHTMl
+            document.getElementsByTagName("h1").innerHTMl = h1_content;
+        }
+
+        test()
+    </script>
+
+
+</body>

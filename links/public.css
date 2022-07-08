@@ -62,7 +62,7 @@ header a {
 
 header a:active,
 #aHighLight {
-    background-color: rgba(200, 202, 48, 0.799);
+    background-color: rgba(180, 180, 0, 0.799);
 }
 
 header a:hover {
